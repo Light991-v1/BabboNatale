@@ -4,7 +4,7 @@ import random
 
 
 """
-Comdpiti per casa: La scorpacciata di Babbo Natale
+Compiti per casa: La scorpacciata di Babbo Natale
 Dato questo giochino come partenza, aggiungere le seguenti modifiche:
 1 - Scaricare, disegnare o generare con AI un'immagine di sfondo
      e mostrarla poi come background
