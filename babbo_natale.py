@@ -42,6 +42,7 @@ class BabboNatale(arcade.Window):
         self.audio_on = True
         self.background = arcade.load_texture("./assets/sfondo.png")
         self.punti = 0
+        self.cookie_per_spawn = 1
         
         
         self.up_pressed = False
@@ -126,7 +127,10 @@ class BabboNatale(arcade.Window):
             for cookie in collisioni:
                 cookie.remove_from_sprite_lists()
                 self.punti += 1
-            self.crea_cookie() # creo un altro biscotto
+            self.cookie_per_spawn = self.punti // 5 + 1
+            for _ in range(self.cookie_per_spawn):
+                self.crea_cookie()
+            #self.crea_cookie() # creo un altro biscotto
     
     def on_key_press(self, tasto, modificatori):
         if tasto in (arcade.key.UP, arcade.key.W):
