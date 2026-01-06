@@ -39,6 +39,9 @@ class BabboNatale(arcade.Window):
         self.lista_babbo = arcade.SpriteList()
         self.lista_cookie = arcade.SpriteList()
         self.suono_munch = arcade.load_sound("./assets/munch.mp3")
+        self.background = arcade.load_texture("./assets/sfondo.png")
+
+    
         
         self.up_pressed = False
         self.down_pressed = False
@@ -67,6 +70,10 @@ class BabboNatale(arcade.Window):
     
     def on_draw(self):
         self.clear()
+        arcade.draw_texture_rect(
+            self.background,
+            arcade.LBWH(0, 0, 600, 600)
+        )
         self.lista_cookie.draw()
         self.lista_babbo.draw()
     
