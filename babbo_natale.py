@@ -64,9 +64,15 @@ class BabboNatale(arcade.Window):
     
     def crea_cookie(self):
         self.cookie = arcade.Sprite("./assets/cookie.png")
-        self.cookie.center_x = random.randint(50, 550)
-        self.cookie.center_y = random.randint(50, 550)
         self.cookie.scale = 0.2
+        while True:
+            x = random.randint(50, 550)
+            y = random.randint(50, 550)
+            if x >= self.babbo.center_x + 100 or x <= self.babbo.center_x - 100:
+                if y >= self.babbo.center_y + 100 or y <= self.babbo.center_y - 100:
+                    break
+        self.cookie.center_x = x
+        self.cookie.center_y = y    
         self.lista_cookie.append(self.cookie)
     
     def on_draw(self):
