@@ -41,7 +41,8 @@ class BabboNatale(arcade.Window):
         self.suono_munch = arcade.load_sound("./assets/munch.mp3")
         self.audio_on = True
         self.background = arcade.load_texture("./assets/sfondo.png")
-    
+        self.punti = 0
+        
         
         self.up_pressed = False
         self.down_pressed = False
@@ -70,10 +71,8 @@ class BabboNatale(arcade.Window):
     
     def on_draw(self):
         self.clear()
-        arcade.draw_texture_rect(
-            self.background,
-            arcade.LBWH(0, 0, 600, 600)
-        )
+        arcade.draw_texture_rect(self.background,arcade.LBWH(0, 0, 600, 600))
+        arcade.draw_text(f"Biscotti: {self.punti}",50,550)  
         self.lista_cookie.draw()
         self.lista_babbo.draw()
     
@@ -120,6 +119,7 @@ class BabboNatale(arcade.Window):
                 arcade.play_sound(self.suono_munch)
             for cookie in collisioni:
                 cookie.remove_from_sprite_lists()
+                self.punti += 1
             self.crea_cookie() # creo un altro biscotto
     
     def on_key_press(self, tasto, modificatori):
